@@ -11,7 +11,7 @@ setuptools.setup(
     description="DEBoost: A Python Library for Weighted Distance Ensembling in Machine Learning",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/weihao94/DEBoost",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
