@@ -23,6 +23,11 @@ $ pip install deboost
 By default, `DEBoostRegressor` has parameters `method='regression'`, `mode='mean'`, `sdhw=True`. In other words, it will perform an ensemble of the mean of all predictions and assign higher weights to model predictions with smaller spatial/statistical distance to all other model predictions. `DEBoostClassifier` is similar, with `method='classification'`. Thus calling `DEBoostRegressor()` is akin to calling `DEBoostRegressor(method='regression', mode='mean', sdhw=True)`. An example can be found below.
 
 ```py
+from sklearn.datasets import load_boston
+from deboost import DEBoostRegressor
+
+boston = load_boston()
+X_train, X_test, y_train, y_test = train_test_split(boston.data, boston.target, test_size = 0.2, random_state=42)
 rgr = DEBoostRegressor()
 rgr.fit(X_train, y_train)
 rgr.predict(X_test)
@@ -37,6 +42,14 @@ The default models available for regression are Ridge, Lasso, Elastic net, AdaBo
 To use custom models, users must first ensure that they have at least the `predict` method like models from Scikit-learn. Suppose that the user wants to ensemble two models - Lasso and Ridge for regression, each used alongside GridSearchCV from Scikit-learn. Then they may add them into DEBoostRegressor with the following lines of code:
 
 ```py
+from sklearn.datasets import load_boston
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import Ridge, Lasso
+from sklearn.model_selection import GridSearchCV, KFold
+from deboost import DEBoostRegressor
+
+boston = load_boston()
+X_train, X_test, y_train, y_test = train_test_split(boston.data, boston.target, test_size = 0.2, random_state=42)
 model = Ridge()
 model2 = Lasso()
 cv = KFold(n_splits = 5, shuffle=True, random_state=42)
