@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="deboost-khoongweihao", # Replace with your own username
+    name="deboost",
     version="0.10.0",
     author="Wei Hao Khoong",
     author_email="khoongweihao@u.nus.edu",
