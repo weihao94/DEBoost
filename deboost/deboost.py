@@ -46,7 +46,6 @@ class DEBoostRegressor:
                        DecisionTreeRegressor(),
                        lgb,
                        XGBRegressor()]
-        self.num_models = len(self.models)
         self.sdhw = sdhw # smallest distance highest weight
     
     def fit(self, X, y):
@@ -89,7 +88,7 @@ class DEBoostRegressor:
     # function for getting mean of predictions
     def get_mean_preds(self, predictions):
         concat_preds = sum(predictions)
-        return concat_preds/self.num_models
+        return concat_preds/len(self.models)
 
     # function for getting median of predictions
     def get_median_preds(self, predictions):
@@ -158,7 +157,6 @@ class DEBoostClassifier:
                        DecisionTreeClassifier(min_samples_leaf=31),
                        lgb.LGBMClassifier(),
                        XGBClassifier()]
-        self.num_models = len(self.models)
         self.sdhw = sdhw # smallest distance highest weight
     
     def fit(self, X, y):
