@@ -94,7 +94,7 @@ SOFTWARE.
 
 ## Reference
 
-To be updated once preprint is out.
+The preprint can be found at https://www.preprints.org/manuscript/202005.0354/v1.
 
 ## Donate
 
